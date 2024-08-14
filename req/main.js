@@ -22,7 +22,7 @@ app.get('/index',(req,res)=>{
     res.sendFile('template/index.html',{root:__dirname})
 })
 app.get('/api',(req,res)=>{
-    res.json({a:1,B:3,name:"kb"})
+    res.json({a:1,B:3,name:"kb", c:5})
 })
 app.listen(port,()=>{
     console.log(`Listening on port number ${port}`)
