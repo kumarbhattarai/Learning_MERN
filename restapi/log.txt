@@ -96,3 +96,33 @@ Date: 1/14/2025, 5:46:43 PM
  path:/api/users/67864c3ae3ec8f95ea3b5829
  ip:::1
 
+Date: 1/15/2025, 1:38:20 PM
+ method: GET
+ path:/users
+ ip:::1
+
+Date: 1/15/2025, 1:38:57 PM
+ method: GET
+ path:/users
+ ip:::1
+
+Date: 1/15/2025, 1:39:40 PM
+ method: GET
+ path:/users
+ ip:::1
+
+Date: 1/15/2025, 1:40:34 PM
+ method: GET
+ path:/users
+ ip:::1
+
+Date: 1/15/2025, 1:42:40 PM
+ method: POST
+ path:/users
+ ip:::1
+
+Date: 1/15/2025, 1:42:53 PM
+ method: GET
+ path:/users
+ ip:::1
+
