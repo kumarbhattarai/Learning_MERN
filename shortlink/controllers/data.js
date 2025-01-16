@@ -2,16 +2,35 @@ const { nanoid } =require('nanoid')
 const url=require('../models/data')
 async function shortUrl(req,res){
     const body=req.body
+    const inputUrl = body.url
+    const userIp = req.ip;
+console.log("User IP:", userIp);
     if(!body){
         res.status(400).json({err:"url is reqd"})
     }
+
+    const existingUrl = await url.findOne({ redirecturl: inputUrl });
+    if(existingUrl){
+        // console.log("Existing URL:", existingUrl);
+        res.render("index",{
+            id:existingUrl.shortid
+        })
+    }
+    else{
     const shortId=nanoid(8)
     await url.create({
         shortid:shortId,
-        redirecturl:body.url,
+        redirecturl:inputUrl,
         History:[]
     })
-    res.json({id:shortId})
+    // console.log("New short ID:", shortId)
+    res.render("index",{
+        id:shortId
+    })
+}
+// console.log("Request body:", req.body);
+
+
 }
     async function showdata(req,res){
     const sid=req.params.id
@@ -33,8 +52,12 @@ async function getAnalytics(req,res){
         analytics:result.History
     })
 }
+async function testurl(req,res){
+    return await res.render("index")
+}
 module.exports={
     shortUrl,
     showdata,
-    getAnalytics
+    getAnalytics,
+    testurl,
 };
