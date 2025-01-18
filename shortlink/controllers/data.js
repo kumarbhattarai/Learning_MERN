@@ -12,8 +12,10 @@ console.log("User IP:", userIp);
     const existingUrl = await url.findOne({ redirecturl: inputUrl });
     if(existingUrl){
         // console.log("Existing URL:", existingUrl);
+        const allUrls = await url.find({});
         res.render("index",{
-            id:existingUrl.shortid
+            id:existingUrl.shortid,
+            urls: allUrls,
         })
     }
     else{
@@ -21,16 +23,18 @@ console.log("User IP:", userIp);
     await url.create({
         shortid:shortId,
         redirecturl:inputUrl,
-        History:[]
+        History:[],
+        createdBy:req.user._id  
     })
     // console.log("New short ID:", shortId)
-    res.render("index",{
-        id:shortId
-    })
+    const allUrls = await url.find({createdBy:req.user._id});
+    res.render("index", {
+        id: shortId,
+        urls: allUrls,
+    });
+
 }
 // console.log("Request body:", req.body);
-
-
 }
     async function showdata(req,res){
     const sid=req.params.id
