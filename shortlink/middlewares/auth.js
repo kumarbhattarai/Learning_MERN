@@ -12,9 +12,9 @@ if(!user){
 
     return res.redirect('/user/login')
 }
-console.log(user)
+
 req.user=user
-console.log(user)
+
 next()
 }
 // function checkAuthorization(req,res,next){
