@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('./partials/nav') %> 
+    <div class="container">
+        <form action="/blog" method="post" enctype="multipart/form-data">
+            <div class="mb-3 mt-3">
+                <label for="title" class="form-label">Cover Image</label>
+                <input type="file" class="form-control" id="coverimage" name="coverimage">
+              </div>
+            <div class="mb-3 mt-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" name="title">
+              <!-- <div id="titleHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="form-floating mb-2">
+                <label for="body">Body</label>
+                <textarea class="form-control" name="body" id="body"></textarea>
+
+              </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</body>
+</html>

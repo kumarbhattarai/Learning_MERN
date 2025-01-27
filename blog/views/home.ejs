@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head') %>
+    <title>Homepage</title>
+</head>
+<body>
+<%- include('./partials/nav') %> 
+<% if (locals.user) { %>
+<!-- <%- console.log(user) %> -->
+<!-- <%= JSON.stringify(blogs)  %> -->
+<div class="container mt-3">
+    <% blogs.forEach(blogs => { %>
+        <div class="card" style="width: 18rem;">
+            <img src="<%= blogs.coverimageurl %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= blogs.title %></h5>
+              <!-- <p class="card-text"><%= blogs.body %></p> -->
+              <a href="/blogs/<%=blogs._id %>" class="btn btn-primary">View Blog</a>
+            </div>
+          </div>
+    <% }) %>
+    </div>
+    <% }%>
+    <%- include('./partials/script') %> 
+</body>
+</html>
