@@ -4,6 +4,7 @@ const secret='$uper$ecretkumar';
 function createtokenforuser(user){
    const payload={
         _id:user._id,
+        fullname:user.fullname,
         email:user.email,
         profileimageurl:user.profileimageurl,
         role:user.role,

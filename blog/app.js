@@ -4,11 +4,15 @@ const userRouter=require('./routes/data')
 const blogRouter=require('./routes/blog')
 const {connection}=require('./connection')
 const cookieparser=require('cookie-parser')
+require('dotenv').config()
 const { checkforauthenticity }= require('./middlewares/auth')
 const Blogs=require('./model/blog')
+
+
 const app=express();
-const port=3000;
- connection("mongodb://localhost:27017/Blog")
+const port=process.env.PORT||3000;
+ connection(process.env.MONGO_URL);
+ console.log(process.env.MONGO_URL);
 app.set('view engine','ejs');
 app.set('views',path.resolve('./views'));
 
@@ -29,6 +33,7 @@ app.get('/',async (req,res)=>{
 })
 app.use('/users',userRouter)
 app.use('/blog',blogRouter)
+
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 })

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog</title>
+    <%- include('./partials/head') %> 
+</head>
+<body>
+<% if (!locals.user) { %>
+    <%- include('./partials/nav') %>
+<% } else {%>
+    <%- include('./partials/nav') %>
+    <div class="container">
+    <h3><%=blog.title%></h3>
+
+    <img src="<%=blog.coverimageurl%>" alt="Blog image" width="300vw">
+<p><%=blog.body%></p>
+</div>
+<div class="container">
+    <img src="<%=user.profileimageurl%>" alt="user image" width="50px">
+<%=user.fullname%>
+</div>
+<div class="container">
+    <form action="/blog/addcomment/<%= blog._id %>" method="post">
+        <div class="mb-3 mt-3">
+          <label for="comment" class="form-label">comment (<%= comments.length %>)</label>
+          <input type="text" class="form-control" id="comment" name="content" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Everyone on this page will be able to see this.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+</div>
+<div class="container mt-3">
+    <% comments.forEach(comment => { %>
+        <div class="container">
+            <img src="<%=comment.user.profileimageurl%>" alt="user image" width="20px">
+            <%=comment.user.fullname%>
+            <p><%=comment.content%></p>
+        </div>
+    <% }) %>
+</div>
+    <%- include('./partials/script') %>
+    <%}%>
+</body>
+</html>
