@@ -1,0 +1,1 @@
+This project is made in scrimba's inbuilt code editor. So, it might differ in some ways and also images are not included.

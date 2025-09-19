@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+
+header {
+    background: #F55A5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 55px;
+}
+
+header > img {
+    width: 24px;
+    margin-right: 7px;
+}
+
+header > h1 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: Inter;
+}
+.japan{
+    margin-block: 35px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    
+}
+.content{
+    margin-left:10px;
+}
+.spacing{
+    letter-spacing: 0.1rem;
+    margin-top: 5px;
+    font-size: 10px;
+}
+.image>img{
+    border-radius: 4px;
+}
+.map{
+    font-size: 10px;
+    color:#918E9B;
+    text-decoration: underline;
+}
+.description{
+    margin-top: -10px;
+}
+.description>h1{
+    margin-top: -100px;
+}
+.description>p{
+    font-size: x-small;
+    margin-top:-15px
+}
